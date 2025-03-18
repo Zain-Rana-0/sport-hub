@@ -1,0 +1,35 @@
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 0 15px;
+    padding: 15px;
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);  
+        
+    }
+}   
+.teamgallery{
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}
+.gallery-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    /* background-color: rgb(255, 255, 255); */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.gallery-item{
+    cursor: pointer;
+    transition: transform 0.8s ease, box-shadow 1.0s ease, opacity 1.0s ease-out;
+}
+.gallery-item:hover{
+    transform: scale(1.05); 
+    opacity: 0.9;
+}

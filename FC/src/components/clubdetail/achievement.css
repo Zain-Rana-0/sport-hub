@@ -1,0 +1,115 @@
+
+.clubinfo-achivement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+  }
+
+  .clublogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: auto; 
+    height: auto;
+    padding: 10px;
+    border-radius: 50%;
+  }
+.about_details_parent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.about_details{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zain{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  gap: 10px;
+}
+
+.rana{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+
+  .clubinfo-achivement h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+    margin: 10px;
+  }
+  .gradeicon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  } 
+
+  .Matches{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .Tournaments{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .match_table_container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+ 
+  .match_table {
+    width: 100%;
+  
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+thead tr{
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .match-table tr {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .match-table td {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+  }

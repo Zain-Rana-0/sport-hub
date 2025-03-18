@@ -1,0 +1,191 @@
+.toggletabs {
+    max-width: 1400px;
+    margin: 2rem auto;
+    /* padding: 2rem; */
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border-radius: 24px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.08),
+        0 30px 60px rgba(0, 0, 0, 0.06);
+    position: relative;
+    isolation: isolate;
+}
+
+.toggletabs::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), transparent);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.toggletabs-button {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    /* position: sticky; */
+    top: 1rem;
+    z-index: 100;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.toggletabs-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.08),
+        0 2px 4px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.togglebutton {
+    flex: 1;
+    padding: 1.25rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #64748b;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.togglebutton::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, rgba(37, 99, 235, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.togglebutton:hover {
+    color: #0f172a;
+    transform: translateY(-1px);
+}
+
+.togglebutton:hover::before {
+    opacity: 1;
+}
+
+.togglebutton.active {
+    color: #2563eb;
+    background: #eff6ff;
+    text-align: center;
+    border-color: rgba(37, 99, 235, 0.2);
+    box-shadow: 
+        0 2px 4px rgba(37, 99, 235, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.togglebutton.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    border-radius: 3px;
+    animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.toggletabs-portion {
+    /* margin-top: 2.5rem; */
+    /* padding: 1.5rem; */
+    min-height: 500px;
+    opacity: 0;
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideIn {
+    from { 
+        width: 0;
+        opacity: 0;
+    }
+    to { 
+        width: 60%;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(4px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Custom scrollbar for modern browsers */
+/* .toggletabs {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+.toggletabs::-webkit-scrollbar {
+    width: 6px;
+}
+
+.toggletabs::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.toggletabs::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 3px;
+} */
+
+@media (max-width: 768px) {
+    .toggletabs {
+        margin: 1.5rem;
+        padding: 1rem;
+    }
+
+    .toggletabs-button {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    
+    .togglebutton {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .togglebutton.active::after {
+        width: 30%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toggletabs-button,
+    .togglebutton,
+    .toggletabs-portion {
+        animation: none;
+        transition: none;
+    }
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    .toggletabs-button {
+        background: rgba(255, 255, 255, 0.7);
+    }
+}

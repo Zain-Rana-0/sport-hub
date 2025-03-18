@@ -1,0 +1,197 @@
+.nav_main_container {
+  width: 100%;
+  height: 64px; /* Fixed height to match padding-top in App.css */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom:100px;
+}
+
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  
+}
+
+.icon {
+  height: 45px;
+  background-color: transparent;
+  width: auto;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.icon:hover {
+  transform: scale(1.15) rotate(-2deg);
+  box-shadow: #f2994a 0px 0px 10px;
+}
+
+.navbar_items {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 3rem;
+}
+
+.ul-container {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listtag {
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.listtag a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+}
+.listtag a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #f2994a, #f2c94c);
+  transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 2px;
+}
+.listtag a:hover {
+  color: #f2994a;
+  transform: translateY(-1px);
+}
+
+.buttons {
+  color: #070707;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+
+.buttons::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #f2994a, #f2c94c);
+  transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 2px;
+}
+
+.buttons:hover {
+  color: #f2994a;
+  transform: translateY(-1px);
+}
+
+.buttons:hover::after {
+  width: 100%;
+}
+
+.ul-login {
+  margin-left: auto;
+}
+
+.ul-login .listtag a {
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* .ul-login .listtag:first-child a {
+  color: #f2994a;
+  border: 2px solid #f2994a;
+} */
+
+.ul-login .listtag:first-child a:hover {
+  /* background: linear-gradient(90deg, #f2994a, #f2c94c); */
+  color: rgb(228, 141, 11);
+  /* border-color: transparent; */
+}
+
+/* .ul-RegistrationForm .listtag:last-child a {
+  border: 2px solid #f2994a;
+} */
+
+.ul-RegistrationForm .listtag:last-child a:hover {
+  background: linear-gradient(90deg, #f2994a, #f2c94c);
+  color: rgb(235, 147, 15);
+  border-color: transparent;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+}
+
+.logout-btn:hover {
+  color: #ff0000;
+}
+
+@media (max-width: 1024px) {
+  .navContainer {
+      padding: 1rem 1.5rem;
+  }
+  
+  .navbar_items {
+      gap: 2rem;
+  }
+  
+  .ul-container {
+      gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding-top: 56px; /* Slightly smaller for mobile */
+  }
+  
+  .nav_main_container {
+    height: 56px;
+  }
+  
+  .navbar_items {
+      display: none;
+  }
+  
+  .navContainer {
+      padding: 0.8rem 1rem;
+  }
+  
+  .icon {
+      height: 35px;
+  }
+}

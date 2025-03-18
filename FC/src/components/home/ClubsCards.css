@@ -1,0 +1,190 @@
+.clubSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensure all cards have the same height */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.topSection {
+  padding: 1.5rem;
+  flex: 1; /* Allow this section to expand and push the button to the bottom */
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.cardLogo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.clubName h1 {
+  font-size: clamp(1.2rem, 4vw, 1.5rem); /* Fluid typography */
+  color: #333;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.clubDescription p {
+  font-size: clamp(0.8rem, 3vw, 0.9rem); /* Fluid typography */
+  color: #666;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.cardButton {
+  display: block;
+  width: 100%;
+  padding: clamp(0.8rem, 3vw, 1rem); /* Fluid button size */
+  background-color: #0070f3;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cardButton:hover {
+  background-color: #0051bb;
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 480px) {
+  .clubSection {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .topSection {
+    padding: 0.75rem;
+  }
+  
+  .cardLogo {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Small devices */
+@media (min-width: 481px)  {
+  .clubSection {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .card {
+    border-radius: 15px;
+  }
+
+  .topSection {
+    padding: 1rem;
+  }
+
+  .cardLogo {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Medium devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .clubSection {
+    gap: 1.75rem;
+    padding: 1.5rem;
+  }
+}
+
+/* For print */
+@media print {
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .cardButton {
+    background: #eee;
+    color: #333;
+  }
+}
+
+/* High contrast mode for accessibility */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid black;
+    box-shadow: none;
+  }
+  
+  .clubName h1 {
+    color: black;
+  }
+  
+  .clubDescription p {
+    color: black;
+  }
+  
+  .cardButton {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: #222;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .clubName h1 {
+    color: #f5f5f5;
+  }
+  
+  .clubDescription p {
+    color: #ddd;
+  }
+  
+  .cardButton {
+    background-color: #0070f3;
+  }
+  
+  .cardButton:hover {
+    background-color: #0051bb;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+}

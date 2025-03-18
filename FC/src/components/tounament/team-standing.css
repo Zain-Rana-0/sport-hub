@@ -1,0 +1,179 @@
+.PointTable-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  /* background: linear-gradient(145deg, #ffffff, #f8fafc); */
+  border-radius: 24px;
+  /* box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.1),
+      0 4px 12px rgba(0, 0, 0, 0.05); */
+  overflow: hidden;
+}
+
+.flex2 {
+   padding: 2rem 2rem 1rem;
+  text-align: center;
+  justify-content: center; 
+  background: linear-gradient(to right, rgba(37, 99, 235, 0.1), transparent); 
+}
+
+.title {
+  font-size: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+  margin: 0;
+  background: linear-gradient(120deg, #1e293b, #334155);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.point-table-container {
+  padding: 2rem;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-radius: 16px;
+  padding: 1.5rem;
+
+}
+
+.pointtable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 1rem;
+}
+
+.pointtable-head {
+  background: #f8fafc;
+  position: sticky;
+  top: 0;
+}
+
+.pointtable-heading th {
+  padding: 1.5rem 1rem;
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  border-bottom: 2px solid rgba(203, 213, 225, 0.5);
+}
+
+.pointtable-heading th:first-child {
+  text-align: left;
+  padding-left: 2rem;
+  border-top-left-radius: 12px;
+}
+
+.pointtable-body-row {
+  transition: all 0.3s ease;
+}
+
+.pointtable-body-row:hover {
+  background: #f1f5f9;
+  transform: translatey(8px) scale(1.01);
+}
+
+.pointtable-body-rowdata {
+  padding: 1.25rem 1rem;
+  text-align: center;
+  color: #475569;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.3);
+}
+
+.pointtable-body-rowdata:first-child {
+  font-weight: 600;
+  color: #1e293b;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.pointtable-body-rowdata:last-child {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Cricket table specific styles */
+.cricket-table h2 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.pointtable-body-row {
+  animation: slideIn 0.3s ease forwards;
+  animation-delay: calc(var(--row-index, 0) * 0.1s);
+}
+
+
+@media (max-width: 768px) {
+  .PointTable-container {
+      margin: 1rem;
+      border-radius: 16px;
+  }
+
+  /* .flex2 {
+      padding: 1.5rem 1rem;
+  } */
+
+  .title {
+      font-size: 1.75rem;
+  }
+
+  .point-table-container {
+      padding: 1rem;
+      overflow-x: auto;
+  }
+
+  .pointtable {
+      min-width: 600px;
+  }
+
+  .pointtable-heading th,
+  .pointtable-body-rowdata {
+      padding: 1rem 0.75rem;
+      font-size: 0.9rem;
+  }
+}
+
+/* Modern scrollbar */
+.point-table-container::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.point-table-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.point-table-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pointtable-body-row {
+      animation: none;
+      transform: none;
+  }
+}

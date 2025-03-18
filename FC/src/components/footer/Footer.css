@@ -1,0 +1,322 @@
+/* Footer Styles - Advanced Optimization */
+:root {
+  --footer-bg: #1c1c1c;
+  --footer-bg-secondary: #252525;
+  --footer-text: #fff;
+  --footer-accent: #ffd700;
+  --footer-secondary: #ccc;
+  --footer-padding: clamp(2rem, 5vw, 4rem);
+  --footer-transition: 0.3s ease;
+  --footer-border-radius: 8px;
+  --footer-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: var(--footer-padding) 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
+  box-shadow: var(--footer-shadow);
+}
+
+/* Optional decorative element */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--footer-accent), transparent);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  margin-bottom: 1.5rem;
+}
+
+.logo h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--footer-accent);
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.logo p {
+  font-size: 0.875rem;
+  color: var(--footer-secondary);
+  margin: 0.5rem 0 0;
+  line-height: 1.6;
+}
+
+.footer-section h4 {
+  font-size: 1.125rem;
+  margin: 0 0 1.25rem;
+  color: var(--footer-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer-section h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--footer-accent);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.75rem;
+  transition: transform var(--footer-transition);
+}
+
+.footer-section ul li:hover {
+  transform: translateX(5px);
+}
+
+.footer-section ul li a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  display: inline-block;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color var(--footer-transition);
+}
+
+.footer-section ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--footer-accent);
+  transition: width var(--footer-transition);
+}
+
+.footer-section ul li a:hover {
+  color: var(--footer-accent);
+}
+
+.footer-section ul li a:hover::after {
+  width: 100%;
+}
+
+.footer-section p {
+  font-size: 0.9375rem;
+  color: var(--footer-secondary);
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-item i {
+  color: var(--footer-accent);
+  font-size: 1.125rem;
+  min-width: 1.25rem;
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  gap: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+.social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--footer-bg-secondary);
+  color: var(--footer-text);
+  transition: all var(--footer-transition);
+}
+
+.social a:hover {
+  background-color: var(--footer-accent);
+  transform: translateY(-5px);
+}
+
+.social a i {
+  font-size: 1.25rem;
+  color: inherit;
+  margin: 0;
+}
+
+.newsletter {
+  margin-top: 1.5rem;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newsletter-form input {
+  padding: 0.875rem 1rem;
+  border: none;
+  border-radius: var(--footer-border-radius);
+  background-color: var(--footer-bg-secondary);
+  color: var(--footer-text);
+  font-size: 0.9375rem;
+}
+
+.newsletter-form input:focus {
+  outline: 2px solid var(--footer-accent);
+}
+
+.newsletter-form button {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: var(--footer-border-radius);
+  background-color: var(--footer-accent);
+  color: #000;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all var(--footer-transition);
+}
+
+.newsletter-form button:hover {
+  background-color: #e6c200;
+  transform: translateY(-2px);
+}
+
+.copyright {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--footer-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: light) {
+  :root {
+    --footer-bg: #f1f1f1;
+    --footer-bg-secondary: #e5e5e5;
+    --footer-text: #333;
+    --footer-accent: #d4af37;
+    --footer-secondary: #666;
+    --footer-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .footer-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-section h4,
+  .footer-section p,
+  .contact-info,
+  .logo {
+    text-align: center;
+  }
+  
+  .contact-item {
+    justify-content: center;
+  }
+  
+  .footer-section ul li:hover {
+    transform: none;
+  }
+  
+  .social {
+    justify-content: center;
+  }
+  
+  .newsletter-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .footer-section ul li:hover {
+    transform: none;
+  }
+  
+  .social a:hover {
+    transform: none;
+  }
+  
+  .newsletter-form button:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  footer {
+    background-color: #fff !important;
+    color: #000 !important;
+    box-shadow: none;
+  }
+  
+  footer::before,
+  .social,
+  .newsletter {
+    display: none;
+  }
+}

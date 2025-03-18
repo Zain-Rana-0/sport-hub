@@ -1,0 +1,238 @@
+#root {
+  padding-top: 64px; /* This should match your navbar height */
+}
+
+.content-wrapper {
+  margin-top: 1rem;
+  min-height: calc(100vh - 64px);
+}
+
+/* Dashbaoard styles */
+/* Users Page & Tournament Modal Styles */
+:root {
+  --primary-color: #3a86ff;
+  --primary-hover: #2a6fd9;
+  --secondary-color: #ff006e;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --overlay-bg: rgba(15, 23, 42, 0.75);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --transition: all 0.2s ease;
+  --z-modal: 1000;
+  --z-close-btn: 1001;
+}
+
+/* Users page container */
+.users-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Create tournament button */
+.create-tournament-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 2rem;
+}
+
+.create-tournament-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.create-tournament-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: 1rem;
+  overflow-y: auto;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal content */
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close button */
+.close-modal-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: var(--z-close-btn);
+}
+
+.close-modal-btn:hover {
+  background-color: #f1f5f9;
+  color: var(--text-primary);
+  transform: rotate(90deg);
+}
+
+/* Make sure the form has appropriate padding with close button */
+.modal-content form {
+  padding-top: 3.5rem;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+  
+  .modal-content {
+    max-height: 95vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  
+  .close-modal-btn {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --overlay-bg: rgba(0, 0, 0, 0.8);
+  }
+  
+  .close-modal-btn {
+    background-color: #334155;
+    color: #e2e8f0;
+  }
+  
+  .close-modal-btn:hover {
+    background-color: #475569;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay,
+  .modal-content,
+  .close-modal-btn:hover {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* .................................. */
+
+
+/* Main Layout */
+.dashboard-container { display: flex; flex-direction: column; height: 100vh; }
+/* .dashboard-header { background: #2c3e50; color: white; padding: 1rem; } */
+.dashboard-nav { display: flex; gap: 1rem; margin-top: 1rem; }
+.dashboard-main { flex: 1; padding: 2rem; background: #f5f6fa; }
+
+/* Cards */
+.card { background: white; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+/* Stats Grid */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.stat-card { background: white; padding: 1.5rem; border-radius: 8px; text-align: center; }
+
+/* Tables */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th, .data-table td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; }
+
+/* Forms */
+.form-input { width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; }
+.form-group { margin-bottom: 1rem; }
+
+/* Buttons */
+.btn-primary { background: #3498db; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; }
+.btn-secondary { background: #ecf0f1; padding: 0.5rem 1rem; border: none; border-radius: 4px; }
+
+/* Modals */
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); }
+.modal-content { background: white; width: 500px; margin: 2rem auto; padding: 2rem; }
