@@ -48,7 +48,7 @@ export default function ClubsCard() {
                 <div key={club._id} className="card">
                     <div className="topSection">
                         <div className="icons">
-                        <img src="icon.png" alt="logo"/>
+                        <img src="icon.png"  height="60px" width="60px" alt='logo'/>
                         </div>
                         <div className="clubName">
                             <h1>{club.club_name}</h1>

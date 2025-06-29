@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+// import { div } from "framer-motion/client";
 
 const initialFormState = {
   firstname: "",
@@ -18,6 +19,7 @@ const playerForm = ({ onSubmitSuccess, playerToEdit = null }) => {
   const [formData, setFormData] = useState(playerToEdit || initialFormState);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
@@ -84,6 +86,10 @@ const playerForm = ({ onSubmitSuccess, playerToEdit = null }) => {
   };
 
   return (
+    <div  className="player-form-container">
+      <button type="button" >
+        Create New Player
+      </button>
     <form onSubmit={handleSubmit} className="player-form">
       <h2>{playerToEdit ? "Edit Player" : "Add New Player"}</h2>
 
@@ -234,6 +240,7 @@ const playerForm = ({ onSubmitSuccess, playerToEdit = null }) => {
         </button>
       </div>
     </form>
+    </div>
   );
 };
 

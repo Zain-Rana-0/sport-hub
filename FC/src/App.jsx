@@ -12,7 +12,7 @@ import Navbar from './components/navbar/Navbar';
 import Tournaments from './pages/Tournaments';
 import ClubDetail from './pages/ClubDetail';
 import Tournamentpage from './pages/Tournamentpage';
-import Footer from './components/footer/Footer';
+// import Footer from './components/footer/Footer';
 import Users from './pages/dashboard';
 
 import ClubRegistration from './components/clubRegistration';

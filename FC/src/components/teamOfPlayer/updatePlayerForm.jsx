@@ -14,7 +14,7 @@ const initialFormState = {
   phone: "",
 };
 
-const PlayerForm = ({ playerToEdit, onSubmitSuccess }) => {
+const updatePlayer = ({ playerToEdit, onSubmitSuccess }) => {
   const [formData, setFormData] = useState(initialFormState);
   const [loading, setLoading] = useState(false);
 
@@ -55,7 +55,7 @@ const PlayerForm = ({ playerToEdit, onSubmitSuccess }) => {
 
   return (
     <form onSubmit={handleSubmit} className="player-form">
-      <h2>{playerToEdit ? "Edit Player" : "Add New Player"}</h2>
+      <h2><button>{playerToEdit ? "Edit Player" : "Add New Player"}</button></h2>
       
       <div className="form-group">
         <label>First Name</label>
@@ -95,4 +95,4 @@ const PlayerForm = ({ playerToEdit, onSubmitSuccess }) => {
   );
 };
 
-export default PlayerForm;
+export default updatePlayer;

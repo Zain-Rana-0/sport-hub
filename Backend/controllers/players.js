@@ -4,7 +4,7 @@ const TeamPlayer = require("../models/TeamPlayer");
 
 const createPlayer = async (req, res) => {
   try {
-    // Validate required fields
+   
     
     const { firstname, lastname, jerseyNumber,
        position,dateOfBirth,email,phone,
@@ -28,7 +28,9 @@ const createPlayer = async (req, res) => {
     };
 
     const player = new TeamPlayer(playerData);
+    // console.log("Player data:", player);
     const savedPlayer = await player.save();
+    // console.log("Saved player:", savedPlayer);
     res.status(201).json(savedPlayer);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -113,5 +115,6 @@ const deleteplayer = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 module.exports = { createPlayer, getPlayer, updatePlayer, deleteplayer };

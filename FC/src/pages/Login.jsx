@@ -3,7 +3,7 @@ import { Eye, EyeOff, LogIn } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import Signup from "./Signup";
-
+import "../styles/Login.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -28,8 +28,7 @@ export default function Login() {
     if (userInLocalStorage) {
       navigate("/");
     }
-  }
-  , [userInLocalStorage, navigate]);
+  }, [userInLocalStorage, navigate]);
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
@@ -69,19 +68,15 @@ export default function Login() {
     }
   };
 
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-96 max-w-md">
-        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+    <div className="login-container">
+      <div className="login-form-wrapper">
+        <h2 className="login-title">
           Welcome Back
         </h2>
-        <form className="space-y-4" onSubmit={handleLogin}>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
+        <form className="login-form" onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
               Email Address
             </label>
             <input
@@ -90,59 +85,51 @@ export default function Login() {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
-                         focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+              className="form-input"
               placeholder="you@example.com"
             />
           </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
-            <div className="mt-1 relative">
+            <div className="password-input-wrapper">
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                className="block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
-                           focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                className="form-input password-input"
                 placeholder="********"
               />
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+                className="password-toggle-btn"
               >
                 {showPassword ? (
-                  <EyeOff className="h-5 w-5 text-gray-500" />
+                  <EyeOff className="eye-icon" />
                 ) : (
-                  <Eye className="h-5 w-5 text-gray-500" />
+                  <Eye className="eye-icon" />
                 )}
               </button>
             </div>
           </div>
-          {error && <div className="text-red-500 text-sm">{error}</div>}
-          <button
-            type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-          >
-            <LogIn className="h-5 w-5 mr-2" />
+          {error && <div className="error-message">{error}</div>}
+          <button type="submit" className="submit-btn">
+            <LogIn className="submit-icon" />
             Sign In
           </button>
         </form>
-        <div className="auth-container mt-4 text-center">
+        <div className="auth-container">
           {showLogin ? (
             <>
               <p>
                 Don't have an account?{" "}
                 <button
                   onClick={() => (window.location.href = "/registration")}
-                  className="text-purple-600 hover:underline"
+                  className="auth-link"
                 >
                   Sign up here
                 </button>
@@ -155,7 +142,7 @@ export default function Login() {
                 Already have an account?{" "}
                 <button
                   onClick={() => (window.location.href = "/login")}
-                  className="text-purple-600 hover:underline"
+                  className="auth-link"
                 >
                   Login here
                 </button>

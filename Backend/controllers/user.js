@@ -32,9 +32,9 @@ const registration = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  
-  const { email, password } = req.body;
 
+  const { email, password } = req.body;
+  
   if (!email || !password  ) {
     console.error("Missing data:", req.body);
 

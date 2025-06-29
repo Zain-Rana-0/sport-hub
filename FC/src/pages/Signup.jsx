@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Eye, EyeOff, UserPlus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../styles/Signup.css"; // Assuming you have a CSS file for styling
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -57,17 +58,14 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 ">
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-96 max-w-md">
-        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+    <div className="signup-container">
+      <div className="signup-form-wrapper">
+        <h2 className="signup-title">
           Create Account
         </h2>
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <label
-              htmlFor="firstname"
-              className="block text-sm font-medium text-gray-700"
-            >
+        <form className="signup-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="firstname" className="form-label">
               First Name
             </label>
             <input
@@ -76,15 +74,11 @@ export default function Signup() {
               name="firstname"
               value={formData.firstname}
               onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
-                         focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+              className="form-input"
               placeholder="John"
               required
             />
-            <label
-              htmlFor="lastname"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="lastname" className="form-label">
               Last Name
             </label>
             <input
@@ -93,17 +87,13 @@ export default function Signup() {
               name="lastname"
               value={formData.lastname}
               onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
-                         focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+              className="form-input"
               placeholder="Doe"
               required
             />
           </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
               Email Address
             </label>
             <input
@@ -112,49 +102,41 @@ export default function Signup() {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
-                         focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+              className="form-input"
               placeholder="you@example.com"
               required
             />
           </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
-            <div className="mt-1 relative">
+            <div className="password-input-wrapper">
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
-                className="block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
-                           focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                className="form-input password-input"
                 placeholder="********"
                 required
               />
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+                className="password-toggle-btn"
               >
                 {showPassword ? (
-                  <EyeOff className="h-5 w-5 text-gray-500" />
+                  <EyeOff className="eye-icon" />
                 ) : (
-                  <Eye className="h-5 w-5 text-gray-500" />
+                  <Eye className="eye-icon" />
                 )}
               </button>
             </div>
           </div>
-          <div>
-            <label
-              htmlFor="role"
-              className="block text-sm font-medium text-gray-700"
-            >
+          <div className="form-group">
+            <label htmlFor="role" className="form-label">
               Role
             </label>
             <select
@@ -162,29 +144,25 @@ export default function Signup() {
               name="role"
               value={formData.role}
               onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
-                         focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+              className="form-select"
               required
             >
               <option value="user">Regular User</option>
-              <option value="admin">Rlub's Admin</option>
+              <option value="admin">Club's Admin</option>
             </select>
           </div>
-          {error && <div className="text-red-500 text-sm">{error}</div>}
-          <button
-            type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-          >
-            <UserPlus className="h-5 w-5 mr-2" />
+          {error && <div className="error-message">{error}</div>}
+          <button type="submit" className="submit-btn">
+            <UserPlus className="submit-icon" />
             Sign Up
           </button>
-          <div className="auth-container mt-4 text-center">
+          <div className="auth-container">
             <p>
               Don't have an account?{" "}
               <button
                 type="button"
                 onClick={() => (window.location.href = "/login")}
-                className="text-purple-600 hover:underline"
+                className="auth-link"
               >
                 Login here
               </button>
