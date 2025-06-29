@@ -35,7 +35,7 @@ app.post("/getUser", getUser);
 // app.get("/api/deletePlayer", deleteplayer);
 app.post("/api/fixtures", createFixture);
 app.get("/api/fixtures", getFixtures);
-app.put("/api/fixtures/:id", updateFixture);
+app.post("/api/fixtures/:id", updateFixture);
 app.delete("/api/fixtures/:id", deleteFixture);
 
 // MongoDB Connection with better error handling

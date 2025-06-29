@@ -31,12 +31,11 @@ export default function FixtureResults() {
   }, []);
 
   useEffect(() => {
-    // Fetch fixtures from API
     const fetchFixtures = async () => {
       setLoading(true);
       try {
         const response = await axios.get("http://localhost:8000/api/fixtures");
-        setFixtures(response.data);
+        setFixtures(response.data.fixtures);
         setError(null);
       } catch (err) {
         console.error("Failed to fetch fixtures:", err);
@@ -53,26 +52,16 @@ export default function FixtureResults() {
   const handleCreateFixture = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      await axios.post(
         "http://localhost:8000/api/fixtures",
         newFixture
       );
-      setFixtures([...fixtures, response.data]);
-      setShowAddForm(false);
-      setNewFixture({
-        date: "",
-        type: "bilateral",
-        homeTeam: "",
-        awayTeam: "",
-        score: "",
-      });
     } catch (error) {
       console.error("Failed to create fixture:", error);
       setError("Failed to create fixture. Please try again.");
     }
   };
 
-  // Add function to handle form input changes for new fixture
   const handleNewFixtureChange = (e) => {
     const { name, value } = e.target;
     setNewFixture({ ...newFixture, [name]: value });

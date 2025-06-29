@@ -59,9 +59,9 @@ const getFixtures = async (req, res) => {
 const updateFixture = async (req, res) => {
     try {
         const { id } = req.params;
-        const { team1, team2, date, time, venue } = req.body;
+        const { awayTeam, homeTeam, date, time, score ,type} = req.body;
     
-        const updatedFixture = await Fixture.findByIdAndUpdate(id, { team1, team2, date, time, venue }, { new: true });
+        const updatedFixture = await Fixture.findByIdAndUpdate(id, { awayTeam,homeTeam,date,time,score,type }, { new: true });
     
         if (!updatedFixture) {
             return res.status(404).json({ error: 'Fixture not found' });
